@@ -1,38 +1,379 @@
-.App {
+@import url(//db.onlinewebfonts.com/c/ebea2aa546d58c52c20de57835663484?family=Bradley+Hand+ITC+Std);
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono:100');
+
+html {
+  min-height:100%;
+  position: relative;
+  background-image: url("./static/Background.png");
+  background-repeat: no-repeat;
+}
+
+body {
+  height: 100%;
+}
+
+/** Navbar **/
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #326436;
+}
+
+.about, .aboutActive, .contact, .contactActive {
+  display: inline-block;
+  margin-right: 14%;
+  margin-left: 12%;
+  font-size: 18px;
+  text-transform: uppercase;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  text-decoration: none;
+}
+
+.contactActive, .aboutActive {
+  border-bottom: 1px solid white;
+}
+
+.logoLink {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon {
+  display: inline-block;
+  height: 105px;
+  width: 210px;
+}
+
+@media (max-width: 726px) {
+  .desktop {
+    display: none;
+  }
+}
+
+@media (min-width: 726px) {
+  .mobile {
+    display: none;
+  }
+}
+
+/**           Home            **/
+
+/** Desktop **/
+.desktop {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.homeHeader {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background-color: #326436cd;
+  z-index: 10;
+  height: 240px;
+}
+
+.nameWrapper {
+  position: absolute;
+  width: 100%;
+}
+
+.name {
+  font-size: 64px;
+  letter-spacing: 2px;
+  color: white;
+  padding-right: 5px;
+  z-index: 5;
+}
+
+.iconHome {
+  width: 400px;
+  height: 200px;
+  z-index: 5;
+  animation: fadeIn 3s;
+}
+
+@keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+.cursor {
+  font-size: 60px;
+  font-weight: 100;
+  padding-bottom: 5px;
+  color: white;
+  animation: 1s blink step-end infinite;
+  z-index: 5;
+}
+
+@keyframes blink {
+  from, to {
+    color: transparent;
+  }
+  50% {
+    color: white;
+  }
+}
+
+.tagline {
+  position: absolute;
+  text-align: center;
+  font-size: 32px;
+  line-height: 2;
+  font-weight: 700;
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-top: 40px;
+  color: white;
+  margin: 0 auto;
+  display: block;
+}
+
+.buttons {
+  position: absolute;
+  text-align: center;
+  padding-top: 240px;
+  height: auto;
+  width: 100%;
+}
+
+.aboutButton, .contactButton {
+  border: none;
+  background-color: inherit;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  display: inline-block;
+  border: 1.5px solid white;
+  margin-right: 10%;
+  margin-left: 10%;
+  color: white;
+  text-decoration: none;
+  background-color: black;
+}
+
+.aboutButton:hover, .contactButton:hover {
+  background-color: #1a1a1a;
+}
+
+
+/** Mobile **/
+.mobile {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.name-mobile {
+  font-size: 24px;
+  letter-spacing: 2px;
+  color: white;
+  padding-right: 5px;
+  z-index: 5;
+}
+
+.homeHeader-mobile {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: #326436cd;
+  z-index: 10;
+  height: 50vw;
+}
+
+.iconHome-mobile {
+  top: 0;
+  position: absolute;
+  width: 100%;
+}
+
+.cursor-mobile {
+  font-size: 28px;
+  font-weight: 100;
+  padding-bottom: 5px;
+  color: white;
+  animation: 1s blink step-end infinite;
+  z-index: 5;
+}
+
+.taglines-mobile {
+  color: white;
+  font-size: 24px;
+  line-height: 2;
+  font-weight: 700;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+/**           About           **/
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.About {
+  background-color: rgba(0, 0, 0, 0.8);
+  padding-top: 2%;
+  padding-bottom: 2%;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.nameTag {
+  padding-left: 2%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  margin-left: 3%;
+  margin-right: 3%;
+  width: 92%;
+  background-color: #326436;
+  border-radius: 10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.myName {
+  font-size: 36px;
+  padding-top: 3px;
+  font-family: "Roboto Mono:100";
+}
+
+.myTitle {
+  font-size: 24px;
+  font-family: "Roboto Mono:100";
+}
+
+.intro {
+  display: flex;
+  align-items: center;
+  background-color: #326436;
+  margin-left: 3%;
+  margin-top: 0;
+  margin-bottom: 2%;
+  padding-right: 2%;
+  margin-right: 3%;
+  border-radius: 10px;
+}
+
+.meTag {
+  font-family: "Bradley Hand ITC Std";
+  font-size: 32px;
+  font-weight: 700;
+  margin-left: 15%;
+  padding-top: 1%;
+}
+
+.mypic {
+  height: 30%;
+  width: 30%;
+}
+
+.bio {
+  display: inline-block;
+  padding-left: 3%;
+  font-size: 20px;
+  line-height: 2;
+  font-family: "Roboto Mono:100";
+}
+
+.bioPersonal {
+  padding-left: 3%;
+  padding-right: 5%;
+  font-size: 20px;
+  line-height: 2;
+  font-family: "Roboto Mono:100";
+}
+
+.mySkills {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  font-family: "Roboto Mono:100"; 
+  margin-top: 2%;
+  margin-bottom: 0%;
+}
+
+.webDevelop, .otherLang {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #326436;
+  padding-top: 3%;
+  width: 33%;
+  border-radius: 15px;
+  margin-right: 1%;
+}
+
+.russ {
+  height:25%;
+  width: 25%;
+}
+
+.otherLang {
+  margin-left: 1%;
+}
+
+.web {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.other {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.frontendList, .backendList { 
+  margin-bottom: 10px;
+}
+
+.frontendList {
+  padding-left: 20%;
+}
+
+.skillsListBackend {
+  margin-right: 20%;
+  padding-left: 20%;
+  margin-top: 0;
+  line-height: 2;
+}
+
+.skillsList {
+  margin-top: 0;
+  line-height: 1.4;
+}
+
+.skillsListOther {
+  margin-top: 3%;
+  margin-right: 30%;
+  line-height: 2;
+  font-size: 18px;
+}
+
+.backend {
+  padding-right: 10%;
+  margin-bottom: 0;
+}
+
+.frontend {
+  padding-left: 10%;
+}
+
+.skills {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.russTag {
+  text-align: center;
+  font-family: "Bradley Hand ITC Std";
+  font-size: 32px;
+  font-weight: 700;
 }
