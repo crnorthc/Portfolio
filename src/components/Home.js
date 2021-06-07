@@ -19,43 +19,41 @@ function Home(props) {
     const [description, setDescription] = useState("Calculated");
     const [nextDescription, setNextDescription] = useState("Positive");
     const [countM, setCountM] = useState(0);
-    const [timeM, setTimeM] = useState(100);
+    const [timeM, setTimeM] = useState(50);
     const [steps, setSteps] = useState([false, false, false]);
     const chars = '!<>-_\\/[]{}—=+*^?#________';
     const phrases = [["Work", "Calculated"], ["Attitude", "Positive"], ["Ambition", "High"], ["Creativity", "Youthful"], ["Strategy", "Planned"], ["Ego", "Modest"], ["Goals", "Planned"]]
 
-    /*
-        useEffect(() => {
-            function changeTime(time) {
-                setTime(time);
+    useEffect(() => {
+        function changeTime(time) {
+            setTime(time);
+        }
+
+        const interval = setInterval(() => {
+            if (title.length <= 0 && count <= 2 && back === true) {
+                if (count === 2) {
+                    setDisplay(true);
+                    return
+                }
+                setMessage(welcomeMessages[count]);
+                setCount(count + 1);
+                setBack(false);
             }
-    
-            const interval = setInterval(() => {
-                if (title.length <= 0 && count <= 2 && back === true) {
-                    if (count === 2) {
-                        setDisplay(true);
-                        return
-                    }
-                    setMessage(welcomeMessages[count]);
-                    setCount(count + 1);
-                    setBack(false);
-                }
-                if (back === false) {
-                    setTitle(message.substring(0, title.length + 1));
-                }
-                if (back === true) {
-                    changeTime(150);
-                    setTitle(title.substring(0, title.length - 1));
-                }
-                if (title.length === message.length && back === false) {
-                    changeTime(2000);
-                    setBack(true);
-                }
-            }, time);
-            return () => clearInterval(interval);
-        });
-    
-        */
+            if (back === false) {
+                setTitle(message.substring(0, title.length + 1));
+            }
+            if (back === true) {
+                changeTime(150);
+                setTitle(title.substring(0, title.length - 1));
+            }
+            if (title.length === message.length && back === false) {
+                changeTime(1000);
+                setBack(true);
+            }
+        }, time);
+        return () => clearInterval(interval);
+    });
+
     // Mobile text scramnble
     useEffect(() => {
 
@@ -267,7 +265,7 @@ function Home(props) {
 
     return (
         <div>
-            <div className="desktop">
+            <div id="home" className="desktop">
                 <div className="homeHeader">
                     <div className="name">{title}</div>
                     {display ? logo : cursor}
@@ -279,7 +277,7 @@ function Home(props) {
                     <a href="/contact" className="contactButton">CONTACT</a>
                 </div>
             </div>
-            <div className="mobile">
+            <div id="home-mobile" className=" mobile">
                 <div className="homeHeader-mobile">
                     <img className="iconHome-mobile" alt="icon" src={icon} />
                     <div className="nameWrapper-mobile"></div>
@@ -295,7 +293,7 @@ function Home(props) {
                     <a href="/contact" className="contactButton">CONTACT</a>
                 </div>
             </div>
-        </div>
+        </div >
 
     )
 }
