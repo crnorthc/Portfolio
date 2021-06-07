@@ -14,158 +14,225 @@ function Home(props) {
     const welcomeMessages = ["I am Caleb Northcott", "And this is my Portfolio"];
 
     // Mobile scrambled text
-    const [a_length, setA_length] = useState();
-    const [d_length, setD_length] = useState();
-    const [lettersA, setLettersA] = useState([]);
-    const [lettersD, setLettersD] = useState([]);
-    const [counterA, setCounterA] = useState();
-    const [counterD, setCounterD] = useState();
-    const [attribute, setAttribute] = useState("Ambition");
-    const [description, setDescription] = useState("High");
+    const [attribute, setAttribute] = useState("Work");
+    const [nextAttribute, setNextAttribute] = useState("Attitude");
+    const [description, setDescription] = useState("Calculated");
+    const [nextDescription, setNextDescription] = useState("Positive");
     const [countM, setCountM] = useState(0);
+    const [timeM, setTimeM] = useState(100);
+    const [steps, setSteps] = useState([false, false, false]);
     const chars = '!<>-_\\/[]{}—=+*^?#________';
-    const phrases = [["Work", "Calculated"], ["Attitude", "Positive"], ["Ambition", "High"]]
+    const phrases = [["Work", "Calculated"], ["Attitude", "Positive"], ["Ambition", "High"], ["Creativity", "Youthful"], ["Strategy", "Planned"], ["Ego", "Modest"], ["Goals", "Planned"]]
 
+    /*
+        useEffect(() => {
+            function changeTime(time) {
+                setTime(time);
+            }
+    
+            const interval = setInterval(() => {
+                if (title.length <= 0 && count <= 2 && back === true) {
+                    if (count === 2) {
+                        setDisplay(true);
+                        return
+                    }
+                    setMessage(welcomeMessages[count]);
+                    setCount(count + 1);
+                    setBack(false);
+                }
+                if (back === false) {
+                    setTitle(message.substring(0, title.length + 1));
+                }
+                if (back === true) {
+                    changeTime(150);
+                    setTitle(title.substring(0, title.length - 1));
+                }
+                if (title.length === message.length && back === false) {
+                    changeTime(2000);
+                    setBack(true);
+                }
+            }, time);
+            return () => clearInterval(interval);
+        });
+    
+        */
+    // Mobile text scramnble
+    useEffect(() => {
 
-    const replace_SwithL = (attribute_length, new_attribute) => {
-        var count = 0;
-        for (let i = 0; i < attribute_length; i++) {
-            if (lettersA[i] === 3) {
-                count++;
-            }
-            if (lettersA[i] === 2 && count === counterA) {
-                setAttribute(attribute.substring(0, i) + new_attribute[counterA] + attribute.substring(i + 1));
-                const start = lettersA.slice(0, i - 1);
-                const end = lettersA.slice(i + 1);
-                setLettersA([...start, 3, ...end]);
-                setCounterA(counterA + 1);
-                break;
-            }
+        function nextWord(index, word) {
+            setCountM(index);
+            setNextAttribute(phrases[word][0]);
+            setNextDescription(phrases[word][1]);
+            setSteps([false, false, false]);
         }
-    }
 
-    const replace_LwithS = (attribute_length) => {
-        const char = chars[Math.floor(Math.random() * chars.length)];
-        for (let i = 0; i < attribute_length; i++) {
-            if (lettersA[i] === 1) {
+        function swapLetters(attr) {
+            const char = chars[Math.floor(Math.random() * chars.length)];
+            if (attr) {
                 while (true) {
                     const index = Math.floor(Math.random() * attribute.length);
-                    if (lettersA[index] === 1) {
+                    if (!chars.includes(attribute[index])) {
                         setAttribute(attribute.substring(0, index) + char + attribute.substring(index + 1));
-                        const start = lettersA.slice(0, index - 1);
-                        const end = lettersA.slice(index + 1);
-                        setLettersA([...start, 2, ...end]);
                         break;
                     }
                 }
-                break;
+            }
+            else {
+                while (true) {
+                    const index = Math.floor(Math.random() * description.length);
+                    if (!chars.includes(description[index])) {
+                        setDescription(description.substring(0, index) + char + description.substring(index + 1));
+                        break;
+                    }
+                }
             }
         }
-    }
 
-    const add_symbol = () => {
-        const char = chars[Math.floor(Math.random() * chars.length)];
-        const index = Math.floor(Math.random() * attribute.length);
-        setAttribute(attribute.substring(0, index) + char + attribute.substring(index))
-        lettersA[index] = 2;
-        lettersA[attribute.length - 1] = 1;
-    }
+        function swapSymbols(attr = false) {
+            if (attr) {
+                while (true) {
+                    const index = Math.floor(Math.random() * attribute.length);
+                    if (chars.includes(attribute[index])) {
+                        setAttribute(attribute.substring(0, index) + nextAttribute[index] + attribute.substring(index + 1));
+                        break;
+                    }
+                }
+            }
+            else {
+                while (true) {
+                    const index = Math.floor(Math.random() * description.length);
+                    if (chars.includes(description[index])) {
+                        setDescription(description.substring(0, index) + nextDescription[index] + description.substring(index + 1));
+                        break;
+                    }
+                }
+            }
+        }
 
+        function changeSymbols(attr = false) {
+            const char = chars[Math.floor(Math.random() * chars.length)];
+            if (attr) {
+                const index = Math.floor(Math.random() * attribute.length);
+                setAttribute(attribute.substring(0, index) + char + attribute.substring(index + 1));
+            }
+            else {
+                const index = Math.floor(Math.random() * description.length);
+                setDescription(description.substring(0, index) + char + description.substring(index + 1));
+            }
+        }
 
+        function removeSymbols(attr = false) {
+            if (attr) {
+                const index = Math.floor(Math.random() * attribute.length);
+                setAttribute(attribute.substring(0, index) + attribute.substring(index + 1));
+            }
+            else {
+                const index = Math.floor(Math.random() * description.length);
+                setDescription(description.substring(0, index) + description.substring(index + 1));
+            }
+        }
 
-    useEffect(() => {
-        function changeTime(time) {
-            setTime(time);
+        function addSymbols(attr = false) {
+            const char = chars[Math.floor(Math.random() * chars.length)];
+            if (attr) {
+                const index = Math.floor(Math.random() * attribute.length);
+                if (index !== 0) {
+                    setAttribute(attribute.substring(0, index) + char + attribute.substring(index))
+                }
+                else {
+                    setAttribute(char + attribute.substring(0))
+                }
+            }
+            else {
+                const index = Math.floor(Math.random() * description.length);
+                if (index !== 0) {
+                    setDescription(description.substring(0, index) + char + description.substring(index))
+                }
+                else {
+                    setDescription(char + description.substring(0))
+                }
+            }
+        }
+
+        function stepOne(item, attr) {
+            for (let i = 0; i < item.length; i++) {
+                if (!chars.includes(item[i])) {
+                    swapLetters(attr);
+                    return 1;
+                }
+            }
+            return 0;
+        }
+
+        function stepThree(item, attr) {
+            for (let i = 0; i < item.length; i++) {
+                if (chars.includes(item[i])) {
+                    swapSymbols(attr);
+                    break;
+                }
+            }
         }
 
         const interval = setInterval(() => {
-            if (title.length <= 0 && count <= 2 && back === true) {
-                if (count === 2) {
-                    setDisplay(true);
-                    return
-                }
-                setMessage(welcomeMessages[count]);
-                setCount(count + 1);
-                setBack(false);
-            }
-            if (back === false) {
-                setTitle(message.substring(0, title.length + 1));
-            }
-            if (back === true) {
-                changeTime(150);
-                setTitle(title.substring(0, title.length - 1));
-            }
-            if (title.length === message.length && back === false) {
-                changeTime(2000);
-                setBack(true);
-            }
-        }, time);
-        return () => clearInterval(interval);
-    });
 
+            if (attribute !== nextAttribute || description !== nextDescription) {
+                ;
+                setTimeM(80);
+                var swappedLetters = 0;
 
-    // Mobile text scramnble
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setCounterA(0);
-            setLettersA([]);
-            if (countM === 2) {
-                setCountM(0);
-            }
-            const new_attribute = phrases[countM][0];
-            const new_description = phrases[countM][1];
-            const attribute_length = Math.max(new_attribute.length, attribute.length);
-            const description_length = Math.max(new_description.length, description);
-            const remove = new_attribute.length < attribute.length;
-
-            for (let i = 0; i < attribute_length; i++) {
-                //string index is a old letter
-                if (i < attribute.length - 1) {
-                    setLettersA([...lettersA, 1])
-                }
-                //string index is blank
-                else {
-                    setLettersA([...lettersA, 0])
-                }
-                //if string index is a symbol - 2
-                //if string index is a new letter - 3
-            }
-            for (let i = 0; i < description_length; i++) {
-                //string index is a old letter
-                if (i < description.length - 1) {
-                    setLettersD([...lettersD, 1])
-                }
-                //string index is blank
-                else {
-                    setLettersD([...lettersD, 1])
-                }
-                //if string index is a symbol - 2
-                //if string index is a new letter - 3
-            }
-
-            while (attribute !== new_attribute) {
-                if (attribute.length === new_attribute.length) {
-                    replace_SwithL(attribute_length);
-                }
-                else {
-                    const next = Math.floor(Math.random() * 4);
-
-                    if (next === 0 && !remove) {
-                        add_symbol();
-                    }
-                    if (next === 1) {
-                        replace_SwithL(attribute_length);
-                    }
-                    if (next === 2) {
-                        replace_LwithS(attribute_length);
+                if (!steps[0]) {
+                    swappedLetters += stepOne(attribute, true);
+                    swappedLetters += stepOne(description, false);
+                    if (swappedLetters === 0) {
+                        setSteps([true, false, false]);
                     }
                 }
+
+                if (steps[0] && !steps[1]) {
+                    if (attribute.length > nextAttribute.length) {
+                        removeSymbols(true);
+                    }
+                    if (attribute.length < nextAttribute.length) {
+                        addSymbols(true);
+                    }
+                    if (description.length > nextDescription.length) {
+                        removeSymbols();
+                    }
+                    if (description.length < nextDescription.length) {
+                        addSymbols();
+                    }
+                    if (attribute.length === nextAttribute.length && description.length !== nextDescription.length) {
+                        changeSymbols(true);
+                    }
+                    if (description.length === nextDescription.length && attribute.length !== nextAttribute.length) {
+                        changeSymbols();
+                    }
+                    if (attribute.length === nextAttribute.length && description.length === nextDescription.length) {
+                        setSteps([true, true, false]);
+                    }
+                }
+
+                if (steps[1] && !steps[2]) {
+                    stepThree(attribute, true);
+                    stepThree(description, false);
+                }
+            }
+            else {
+                setTimeM(2000);
+                if (countM === 5) {
+                    nextWord(6, 0);
+                }
+                if (countM === 6) {
+                    nextWord(0, 1);
+                }
+                if (countM < 5) {
+                    nextWord(countM + 1, countM + 2);
+                }
             }
 
-
-        }, 1000);
+        }, timeM);
         return () => clearInterval(interval)
-    })
+    });
 
     const cursor = (
         <div className="cursor">|</div>
@@ -174,6 +241,28 @@ function Home(props) {
     const logo = (
         <img className="iconHome" alt="icon" src={icon} />
     )
+
+    const JSXify = (item) => {
+        var jsx = [];
+        if (item === "Youthful") {
+            return (
+                <span className="youthful">Youthful</span>
+            )
+        }
+        for (let i = 0; i < item.length; i++) {
+            if (chars.includes(item[i])) {
+                jsx.push(
+                    <span className="symbol">{item[i]}</span>
+                )
+            }
+            else {
+                jsx.push(
+                    <span>{item[i]}</span>
+                )
+            }
+        }
+        return jsx;
+    }
 
 
     return (
@@ -196,7 +285,14 @@ function Home(props) {
                     <div className="nameWrapper-mobile"></div>
                 </div>
                 <div className="taglines-mobile">
-                    My {attribute}: {description}
+                    <div className="tagline-mobile">My</div>
+                    <div className="attribute">{JSXify(attribute)}</div>
+                    <div className="tagline-mobile">{attribute === "Goals" ? "are" : "is"}</div>
+                    <div className="description">{JSXify(description)}</div>
+                </div>
+                <div className="buttons-mobile">
+                    <a href="/about" className="aboutButton">ABOUT</a>
+                    <a href="/contact" className="contactButton">CONTACT</a>
                 </div>
             </div>
         </div>
