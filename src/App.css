@@ -1,5 +1,6 @@
 @import url(//db.onlinewebfonts.com/c/ebea2aa546d58c52c20de57835663484?family=Bradley+Hand+ITC+Std);
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url("https://allfont.net/allfont.css?fonts=book-antiqua");
 
 
 html {
@@ -568,3 +569,136 @@ html {
   padding-left: 15px;
   padding-right: 15px;
 }
+
+/**           Contact           **/
+/** Desktop **/
+@media (min-width: 725px) {
+  .mobile-contact {
+    display: none;
+  }
+  .desktop-contact {
+    position: absolute;
+    height: 82.8%;
+    width: 100%;
+    background-color: white;
+  }
+}
+
+@media (max-width: 726px) {
+  .desktop-contact {
+    display: none;
+  }
+}
+
+.card {
+  width: 100%;
+}
+
+.Contact {
+  height: 429px;
+  width: 750px;
+  background-color: white;
+  position: relative;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  box-shadow: 5px 5px 3px rgba(0, 0, 0, 0.8);
+}
+
+.nameTag-contact {
+  position: absolute;
+  bottom: 300px;
+  left: 30px;
+  color: white;
+  font-family: 'Book Antiqua', arial;
+}
+
+.myName-contact {
+  font-size: 36px;
+}
+
+.myTitle-contact {
+  font-size: 24px;
+}
+
+.underLine {
+  margin-top: 10px;
+  height: 5px;
+  width: 150px;
+  background-color: #509b53;
+}
+
+.methods {
+  position: relative;
+  bottom: 260px;
+  left: 30px;
+  color: white;
+  font-size: 24px;
+  font-family: 'Book Antiqua', arial;
+}
+
+.phone, .address, .mail {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.address {
+  margin-top: 10px;
+}
+
+.phone-icon, .pin-icon, .mail-icon {
+  position: relative;
+  width: 50px;
+  display: inline;
+}
+
+.phoneNum, .email {
+  display: inline;
+  margin-bottom: 10px;
+  margin-left: 5px;
+  color: white;
+}
+
+.emailLink {
+  text-decoration: none;
+  margin-bottom: 10px;
+}
+
+.emailLink:hover {
+  text-decoration: underline;
+  color: white;
+}
+
+.mail-icon {
+  width: 45px;
+}
+
+.email {
+  display: inline;
+  margin-bottom: 15px;
+  margin-left: 5px;
+  color: white;
+}
+
+.mail {
+  margin-top: 20px;
+}
+
+.socials {
+  position: relative;
+  bottom: 240px;
+  left: 440px;
+  width: 250px;
+}
+
+.linkedin, .github, .resume {
+  position: relative;
+  width: 50px;
+  margin-right: 20px;
+}
+
+
+
+
