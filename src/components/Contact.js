@@ -5,6 +5,7 @@ import mail from "../static/mail.svg";
 import linkedIn from "../static/linkedin.png";
 import github from "../static/github.png";
 import resume from "../static/resume.svg";
+import pdf from "../static/Resume.pdf"
 
 function Contact(props) {
 
@@ -39,7 +40,7 @@ function Contact(props) {
                     <div className="socials">
                         <a className="linkedIn-link" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/caleb-northcott/"><img className="linkedin" alt="icon" src={linkedIn} /></a>
                         <a className="github-link" target="_blank" rel="noopener noreferrer" href="https://github.com/crnorthc"><img className="github" alt="icon" src={github} /></a>
-                        <a className="github-link" target="_blank" rel="noopener noreferrer" href="../static/Resume.pdf"><img className="resume" alt="icon" src={resume} /></a>
+                        <a className="github-link" target="_blank" rel="noopener noreferrer" href={pdf}><img className="resume" alt="icon" src={resume} /></a>
                     </div>
                 </div>
             </div>
