@@ -34,7 +34,7 @@ function Contact(props) {
                         </div>
                         <div className="mail">
                             <img className="mail-icon" alt="icon" src={mail} />
-                            <a className="emailLink" href="mailto:crnorthc99@gmail.com" ><div className="email">crnorthc@gmail.com</div></a>
+                            <a className="emailLink" href="mailto:crnorthc99@gmail.com" ><div className="email">crnorthc99@gmail.com</div></a>
                         </div>
                     </div>
                     <div className="socials">
@@ -64,7 +64,7 @@ function Contact(props) {
                     </div>
                     <div id="social-mobile" className="mail">
                         <img className="mail-icon" alt="icon" src={mail} />
-                        <a className="emailLink" href="mailto:crnorthc99@gmail.com" ><div className="email">crnorthc@gmail.com</div></a>
+                        <a className="emailLink" href="mailto:crnorthc99@gmail.com" ><div className="email">crnorthc99@gmail.com</div></a>
                     </div>
                 </div>
                 <div className="socials-mobile">
