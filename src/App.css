@@ -754,6 +754,11 @@ html {
   margin-right: 20px;
 }
 
+.github-link-mobile {
+  background: none;
+  border: none;
+}
+
 .github-mobile {
   width: 50px;
   filter: invert(0%);
