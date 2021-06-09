@@ -757,6 +757,7 @@ html {
 .github-link-mobile {
   background: none;
   border: none;
+  padding: 0px 0px 0px 0px;
 }
 
 .github-mobile {

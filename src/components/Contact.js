@@ -11,7 +11,7 @@ import Resume from "../static/Resume.pdf";
 function Contact(props) {
 
     function showPDF(directory) {
-        window.open(directory);
+        window.open(require(directory));
     }
 
     return (
