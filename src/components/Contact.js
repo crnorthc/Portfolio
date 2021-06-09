@@ -40,7 +40,7 @@ function Contact(props) {
                     <div className="socials">
                         <a className="linkedIn-link" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/caleb-northcott/"><img className="linkedin" alt="icon" src={linkedIn} /></a>
                         <a className="github-link" target="_blank" rel="noopener noreferrer" href="https://github.com/crnorthc"><img className="github" alt="icon" src={github} /></a>
-                        <a className="github-link" target="_blank" rel="noopener noreferrer" href="%PUBLIC_URL%/static/js/static/Resume.pdf"><img className="resume" alt="icon" src={resume} /></a>
+                        <a className="github-link" target="_blank" rel="noopener noreferrer" href={require("%PUBLIC_URL%/static/js/static/Resume.pdf")}><img className="resume" alt="icon" src={resume} /></a>
                     </div>
                 </div>
             </div>
@@ -70,10 +70,10 @@ function Contact(props) {
                 <div className="socials-mobile">
                     <a className="linkedIn-link-mobile" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/caleb-northcott/"><img className="linkedin-mobile" alt="icon" src={linkedIn} /></a>
                     <a className="github-link-mobile" target="_blank" rel="noopener noreferrer" href="https://github.com/crnorthc"><img className="github-mobile" alt="icon" src={github} /></a>
-                    <a className="github-link-mobile" target="_blank" rel="noopener noreferrer" href="%PUBLIC_URL%/static/js/static/Resume.pdf"><img className="resume" alt="icon-mobile" src={resume} /></a>
-                </div>
+                    <a className="github-link-mobile" target="_blank" rel="noopener noreferrer" href={require("%PUBLIC_URL%/static/js/static/Resume.pdf"})><img className="resume" alt="icon-mobile" src={resume} /></a>
             </div>
         </div>
+        </div >
 
 
     )
