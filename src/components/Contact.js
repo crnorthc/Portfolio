@@ -5,6 +5,7 @@ import mail from "../static/mail.svg";
 import linkedIn from "../static/linkedin.png";
 import github from "../static/github.png";
 import resume from "../static/resume.svg";
+import Resume from "../static/Resume.pdf";
 
 
 function Contact(props) {
