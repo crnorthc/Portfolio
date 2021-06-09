@@ -1,6 +1,5 @@
 @import url(//db.onlinewebfonts.com/c/ebea2aa546d58c52c20de57835663484?family=Bradley+Hand+ITC+Std);
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
-@import url("https://allfont.net/allfont.css?fonts=book-antiqua");
 
 
 html {
@@ -372,7 +371,6 @@ html {
 }
 
 .meTag {
-  font-family: "Bradley Hand ITC Std";
   font-size: 32px;
   font-weight: 700;
   margin-left: 15%;
@@ -486,7 +484,6 @@ html {
 
 .russTag {
   text-align: center;
-  font-family: "Bradley Hand ITC Std";
   font-size: 32px;
   font-weight: 700;
 }

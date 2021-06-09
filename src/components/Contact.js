@@ -5,14 +5,11 @@ import mail from "../static/mail.svg";
 import linkedIn from "../static/linkedin.png";
 import github from "../static/github.png";
 import resume from "../static/resume.svg";
-import Resume from "../static/Resume.pdf";
+import pdf from "../static/myResume.pdf";
 
 
 function Contact(props) {
 
-    function showPDF(directory) {
-        window.open(require(directory));
-    }
 
     return (
         <div>
@@ -44,7 +41,7 @@ function Contact(props) {
                     <div className="socials">
                         <a className="linkedIn-link" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/caleb-northcott/"><img className="linkedin" alt="icon" src={linkedIn} /></a>
                         <a className="github-link" target="_blank" rel="noopener noreferrer" href="https://github.com/crnorthc"><img className="github" alt="icon" src={github} /></a>
-                        <button className="github-link-mobile" onClick={() => showPDF(Resume)}><img className="resume" alt="icon-mobile" src={resume} /></button>
+                        <a className="github-link" target="_blank" rel="noopener noreferrer" href={pdf}><img className="resume" alt="icon" src={resume} /></a>
                     </div>
                 </div>
             </div>
@@ -74,7 +71,7 @@ function Contact(props) {
                 <div className="socials-mobile">
                     <a className="linkedIn-link-mobile" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/caleb-northcott/"><img className="linkedin-mobile" alt="icon" src={linkedIn} /></a>
                     <a className="github-link-mobile" target="_blank" rel="noopener noreferrer" href="https://github.com/crnorthc"><img className="github-mobile" alt="icon" src={github} /></a>
-                    <button className="github-link-mobile" onClick={() => showPDF(Resume)}><img className="resume" alt="icon-mobile" src={resume} /></button>
+                    <a className="github-link-mobile" target="_blank" rel="noopener noreferrer" href={pdf}><img className="resume" alt="icon-mobile" src={resume} /></a>
                 </div>
             </div>
         </div >
