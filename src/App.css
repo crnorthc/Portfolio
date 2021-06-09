@@ -597,7 +597,7 @@ html {
 .Contact {
   height: 429px;
   width: 750px;
-  background-color: white;
+  background-color: rgb(255, 251, 241);
   position: relative;
   left: 50%;
   top: 50%;
@@ -698,6 +698,69 @@ html {
   width: 50px;
   margin-right: 20px;
 }
+
+
+/** Mobile **/
+.mobile-contact {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  font-family: 'Book Antiqua', arial;
+  height: 76vh;
+}
+
+.nameTag-contact-mobile {
+  padding-top: 20px;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+}
+
+.underLine-mobile {
+  position: relative;
+  margin-top: 10px;
+  height: 5px;
+  width: 150px;
+  background-color: #509b53;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.methods-mobile{
+  margin-top: 30px;
+  padding-left: 20px;
+  font-size: 22px;
+}
+
+.socials-mobile {
+  width: 100%;
+  position: absolute;
+  bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+#social-mobile {
+  padding-top: 20px;
+}
+
+.linkedin-mobile, .resume-mobile {
+  display: inline-block;
+  width: 50px;
+}
+
+.linkedin-mobile {
+  margin-right: 20px;
+}
+
+.github-mobile {
+  width: 50px;
+  filter: invert(0%);
+  -webkit-filter: invert(100%);
+  margin-right: 20px;
+}
+
 
 
 

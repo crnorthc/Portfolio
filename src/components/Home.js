@@ -22,7 +22,7 @@ function Home(props) {
     const [timeM, setTimeM] = useState(50);
     const [steps, setSteps] = useState([false, false, false]);
     const chars = '!<>-_\\/[]{}—=+*^?#________';
-    const phrases = [["Work", "Calculated"], ["Attitude", "Positive"], ["Ambition", "High"], ["Creativity", "Youthful"], ["Strategy", "Planned"], ["Ego", "Modest"], ["Goals", "Planned"]]
+    const phrases = [["Work", "Agile"], ["Attitude", "Positive"], ["Ambition", "High"], ["Creativity", "Youthful"], ["Strategy", "Planned"], ["Ego", "Modest"], ["Goals", "Planned"], ["Mentality", "Curious"]]
 
     useEffect(() => {
         function changeTime(time) {

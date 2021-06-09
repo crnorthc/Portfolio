@@ -45,7 +45,33 @@ function Contact(props) {
                 </div>
             </div>
             <div className="mobile-contact">
-
+                <div className="nameTag-contact-mobile">
+                    <div className="myName-contact">Caleb R. Northcott</div>
+                    <div className="myTitle-contact">Software/Web Developer</div>
+                    <div className="underLine-mobile"></div>
+                </div>
+                <div id="social-mobile" className="methods-mobile">
+                    <div className="phone">
+                        <img className="phone-icon" alt="icon" src={phone} />
+                        <div className="phoneNum">(603)-921-6201</div>
+                    </div>
+                    <div id="social-mobile" className="address">
+                        <img className="pin-icon" alt="icon" src={pin} />
+                        <div className="fullAddy">
+                            <div className="addyOne">14 Powers Road, Hollis</div>
+                            <div className="addyTwo">NH 03049</div>
+                        </div>
+                    </div>
+                    <div id="social-mobile" className="mail">
+                        <img className="mail-icon" alt="icon" src={mail} />
+                        <a className="emailLink" href="mailto:crnorthc99@gmail.com" ><div className="email">crnorthc@gmail.com</div></a>
+                    </div>
+                </div>
+                <div className="socials-mobile">
+                    <a className="linkedIn-link-mobile" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/caleb-northcott/"><img className="linkedin-mobile" alt="icon" src={linkedIn} /></a>
+                    <a className="github-link-mobile" target="_blank" rel="noopener noreferrer" href="https://github.com/crnorthc"><img className="github-mobile" alt="icon" src={github} /></a>
+                    <a className="github-link-mobile" target="_blank" rel="noopener noreferrer" href={pdf}><img className="resume" alt="icon-mobile" src={resume} /></a>
+                </div>
             </div>
         </div>
 
