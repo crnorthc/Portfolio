@@ -47,7 +47,7 @@ function Home(props) {
                 setTitle(title.substring(0, title.length - 1));
             }
             if (title.length === message.length && back === false) {
-                setTimeM(1000);
+                changeTime(1000);
                 setBack(true);
             }
         }, time);
@@ -174,7 +174,7 @@ function Home(props) {
         const interval = setInterval(() => {
 
             if (attribute !== nextAttribute || description !== nextDescription) {
-                ;
+
                 setTimeM(80);
                 var swappedLetters = 0;
 
@@ -217,13 +217,13 @@ function Home(props) {
             }
             else {
                 setTimeM(2000);
-                if (countM === 5) {
+                if (countM === 6) {
                     nextWord(6, 0);
                 }
-                if (countM === 6) {
+                if (countM === 7) {
                     nextWord(0, 1);
                 }
-                if (countM < 5) {
+                if (countM < 6) {
                     nextWord(countM + 1, countM + 2);
                 }
             }
