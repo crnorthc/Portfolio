@@ -47,7 +47,7 @@ function Home(props) {
                 setTitle(title.substring(0, title.length - 1));
             }
             if (title.length === message.length && back === false) {
-                changeTime(1000);
+                setTimeM(1000);
                 setBack(true);
             }
         }, time);
