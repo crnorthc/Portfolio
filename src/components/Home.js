@@ -16,54 +16,50 @@ function Home(props) {
     // Mobile scrambled text
     const [attribute, setAttribute] = useState("Work");
     const [nextAttribute, setNextAttribute] = useState("Attitude");
-    const [description, setDescription] = useState("Calculated");
+    const [description, setDescription] = useState("Agile");
     const [nextDescription, setNextDescription] = useState("Positive");
     const [countM, setCountM] = useState(0);
-    const [timeM, setTimeM] = useState(50);
+    const [timeM, setTimeM] = useState(80);
     const [steps, setSteps] = useState([false, false, false]);
     const chars = '!<>-_\\/[]{}—=+*^?#________';
-    const phrases = [["Work", "Agile"], ["Attitude", "Positive"], ["Ambition", "High"], ["Creativity", "Youthful"], ["Strategy", "Planned"], ["Ego", "Modest"], ["Goals", "Planned"], ["Mentality", "Curious"]]
+    const phrases = [["Work", "Agile"], ["Attitude", "Positive"], ["Ambition", "High"], ["Creativity", "Youthful"], ["Strategy", "Organized"], ["Ego", "Modest"], ["Goals", "Planned"], ["Mentality", "Curious"]]
+
+    let width = window.innerWidth;
 
     useEffect(() => {
         function changeTime(time) {
             setTime(time);
         }
 
-        const interval = setInterval(() => {
-            if (title.length <= 0 && count <= 2 && back === true) {
-                if (count === 2) {
-                    setDisplay(true);
-                    return
+        if (width >= 726) {
+            const interval = setInterval(() => {
+                if (title.length <= 0 && count <= 2 && back === true) {
+                    if (count === 2) {
+                        setDisplay(true);
+                        return
+                    }
+                    setMessage(welcomeMessages[count]);
+                    setCount(count + 1);
+                    setBack(false);
                 }
-                setMessage(welcomeMessages[count]);
-                setCount(count + 1);
-                setBack(false);
-            }
-            if (back === false) {
-                setTitle(message.substring(0, title.length + 1));
-            }
-            if (back === true) {
-                changeTime(150);
-                setTitle(title.substring(0, title.length - 1));
-            }
-            if (title.length === message.length && back === false) {
-                changeTime(1000);
-                setBack(true);
-            }
-        }, time);
-        return () => clearInterval(interval);
+                if (back === false) {
+                    setTitle(message.substring(0, title.length + 1));
+                }
+                if (back === true) {
+                    changeTime(150);
+                    setTitle(title.substring(0, title.length - 1));
+                }
+                if (title.length === message.length && back === false) {
+                    changeTime(1000);
+                    setBack(true);
+                }
+            }, time);
+            return () => clearInterval(interval);
+        }
     });
 
-    // Mobile text scramnble
+    // Mobile text scramble
     useEffect(() => {
-
-        function nextWord(index, word) {
-            setCountM(index);
-            setNextAttribute(phrases[word][0]);
-            setNextDescription(phrases[word][1]);
-            setSteps([false, false, false]);
-        }
-
         function swapLetters(attr) {
             const char = chars[Math.floor(Math.random() * chars.length)];
             if (attr) {
@@ -171,11 +167,17 @@ function Home(props) {
             }
         }
 
-        const interval = setInterval(() => {
+        function nextWord(index, word) {
+            setCountM(index);
+            setNextAttribute(phrases[word][0]);
+            setNextDescription(phrases[word][1]);
+            setSteps([false, false, false]);
+        }
 
+        const interval = setInterval(() => {
+            setTimeM(80);
             if (attribute !== nextAttribute || description !== nextDescription) {
 
-                setTimeM(80);
                 var swappedLetters = 0;
 
                 if (!steps[0]) {
@@ -216,9 +218,9 @@ function Home(props) {
                 }
             }
             else {
-                setTimeM(2000);
+                setTimeM(1000);
                 if (countM === 6) {
-                    nextWord(6, 0);
+                    nextWord(7, 0);
                 }
                 if (countM === 7) {
                     nextWord(0, 1);
@@ -227,7 +229,7 @@ function Home(props) {
                     nextWord(countM + 1, countM + 2);
                 }
             }
-
+            console.log("loop")
         }, timeM);
         return () => clearInterval(interval)
     });
